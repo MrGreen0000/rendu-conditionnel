@@ -1,39 +1,29 @@
+import Article from "./Article";
+
 function Articles({ displayArticle }) {
+  const articles = [
+    {
+      title: "Un titre",
+      content: "Un contenu",
+    },
+    {
+      title: "Un titre 2",
+      content: "Un contenu 2",
+    },
+    {
+      title: "Un titre 3",
+      content: "Un contenu 3",
+    },
+  ];
   return (
     <div style={{ width: "700px" }}>
       <h1 className="mb-20">Liste des articles</h1>
-      {/* {displayArticle ? (
-        <div className="card p-20">
-          <h2 className="mb-10">Titre de l'article</h2>
-          <p>
-            Excepteur laboris excepteur do ad reprehenderit dolor do anim irure.
-            Dolore cupidatat ad irure sunt do excepteur tempor qui mollit eu
-            culpa Lorem. Occaecat culpa laboris in sunt nisi veniam. Mollit
-            ipsum et incididunt pariatur mollit Lorem id aliqua sit elit ex.
-            Veniam adipisicing consequat amet enim. Minim labore aliqua
-            voluptate ipsum mollit occaecat anim deserunt commodo dolore officia
-            proident. Occaecat ex dolore quis dolor aute qui ipsum Lorem ullamco
-            anim incididunt ea laboris dolore.
-          </p>
+      {articles.map((article) => (
+        <div className="mb-20">
+          <h2>{article.title}</h2>
+          <p>{article.content}</p>
         </div>
-      ) : (
-        <p>Aucun article</p>
-      )} */}
-      {displayArticle && (
-        <div className="card p-20">
-          <h2 className="mb-10">Titre de l'article</h2>
-          <p>
-            Excepteur laboris excepteur do ad reprehenderit dolor do anim irure.
-            Dolore cupidatat ad irure sunt do excepteur tempor qui mollit eu
-            culpa Lorem. Occaecat culpa laboris in sunt nisi veniam. Mollit
-            ipsum et incididunt pariatur mollit Lorem id aliqua sit elit ex.
-            Veniam adipisicing consequat amet enim. Minim labore aliqua
-            voluptate ipsum mollit occaecat anim deserunt commodo dolore officia
-            proident. Occaecat ex dolore quis dolor aute qui ipsum Lorem ullamco
-            anim incididunt ea laboris dolore.
-          </p>
-        </div>
-      )}
+      ))}
     </div>
   );
 }
