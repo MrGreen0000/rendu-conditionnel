@@ -1,33 +1,21 @@
+import { useState } from "react";
+
 export default function App() {
-  function handleClick(e) {
-    e.stopPropagation();
-    e.preventDefault();
-    console.log("click ! : ", e);
-  }
+  console.log("render");
 
-  function handleInput(e) {
-    console.log("input : ", e);
-  }
-  function handleFocus(e) {
-    console.log("focus : ", e);
-  }
+  const [count, setCount] = useState(0);
+  const [showCount, setShowCount] = useState(true);
 
-  function handleClickDiv(e) {
-    console.log("div click: ", e);
+  function handleClick() {
+    setCount(count + 1);
   }
 
   return (
-    <div
-      onClick={handleClickDiv}
-      className="d-flex flex-column justify-content-center align-items-center p-20"
-    >
-      <form>
-        <button onClick={handleClick} className="mb-30">
-          Submit
-        </button>
-      </form>
-
-      <input onFocus={handleFocus} type="text" onInput={handleInput}></input>
+    <div className="d-flex flex-column justify-content-center align-items-center p-20">
+      <button onClick={() => setShowCount(!showCount)}>showCount</button>
+      <button onClick={handleClick} className="mb-20">
+        Submit {showCount && <span>{count}</span>}
+      </button>
     </div>
   );
 }
